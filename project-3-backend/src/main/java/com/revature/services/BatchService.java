@@ -10,5 +10,5 @@ public interface BatchService {
 	public Batch getBatchByNumber(int number);
 	public Batch addBatch(Batch batch);
 	public Batch updateBatch(Batch batch);
-	public String deleteBatchById(int id);
+	public String deleteBatchByNumber(int number);
 }

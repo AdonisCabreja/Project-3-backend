@@ -36,9 +36,9 @@ public class BatchServiceImpl implements BatchService {
 	}
 
 	@Override
-	public String deleteBatchById(int id) {
-		br.deleteById(id);
-		return "Batch with id: " + id + " was deleted.";
+	public String deleteBatchByNumber(int number) {
+		br.deleteById(number);
+		return "Batch number: " + number + " was deleted.";
 	}
 
 }

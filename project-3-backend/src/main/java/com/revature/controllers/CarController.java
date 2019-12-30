@@ -3,6 +3,7 @@ package com.revature.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.revature.services.CarService;
 
 @RestController
 @RequestMapping("/cars")
+@CrossOrigin
 public class CarController {
 	
 	@Autowired
@@ -40,8 +42,8 @@ public class CarController {
 		return cs.addCar(car);
 	}
 	
-	@PutMapping
-	public Car updateCar(@RequestBody Car car) {
+	@PutMapping("/{id}")
+	public Car updateCar(@PathVariable("id")int id, @RequestBody Car car) {
 		
 		return cs.updateCar(car);
 	}

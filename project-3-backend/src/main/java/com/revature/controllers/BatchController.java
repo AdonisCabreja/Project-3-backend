@@ -3,6 +3,7 @@ package com.revature.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.revature.services.BatchService;
 
 @RestController
 @RequestMapping("/batches")
+@CrossOrigin
 public class BatchController {
 	
 	@Autowired
@@ -40,15 +42,15 @@ public class BatchController {
 		return bs.addBatch(batch);
 	}
 	
-	@PutMapping
-	public Batch updateBatch(@RequestBody Batch batch) {
+	@PutMapping("/{number}")
+	public Batch updateBatch(@PathVariable("number")int number, @RequestBody Batch batch) {
 		
 		return bs.updateBatch(batch);
 	}
 	
-	@DeleteMapping("/{id}")
-	public String deleteBatchById(@PathVariable("id")int id) {
+	@DeleteMapping("/{number}")
+	public String deleteBatchByNumber(@PathVariable("number")int number) {
 		
-		return bs.deleteBatchById(id);
+		return bs.deleteBatchByNumber(number);
 	}
 }
